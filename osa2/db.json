@@ -1,0 +1,103 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "HTML on helppoa",
+      "date": "2017-12-10T17:30:31.098Z",
+      "important": true
+    },
+    {
+      "id": 2,
+      "content": "Selain pystyy suorittamaan vain javascriptiä",
+      "date": "2017-12-10T18:39:34.091Z",
+      "important": false
+    },
+    {
+      "id": 3,
+      "content": "HTTP-protokollan tärkeimmät metodit ovat GET ja POST",
+      "date": "2017-12-10T19:20:14.298Z",
+      "important": false
+    },
+    {
+      "content": "123132132",
+      "date": "2018-05-22T07:29:15.094Z",
+      "important": false,
+      "id": 4
+    },
+    {
+      "content": "123132132333",
+      "date": "2018-05-22T07:29:18.173Z",
+      "important": false,
+      "id": 5
+    },
+    {
+      "content": "333",
+      "date": "2018-05-22T09:32:45.177Z",
+      "important": false,
+      "id": 6
+    },
+    {
+      "content": "aaaaaa",
+      "date": "2018-05-22T10:37:16.961Z",
+      "important": false,
+      "id": 7
+    },
+    {
+      "content": "asdadsads",
+      "date": "2018-05-22T10:38:01.618Z",
+      "important": true,
+      "id": 8
+    },
+    {
+      "content": "",
+      "date": "2018-05-22T10:38:08.718Z",
+      "important": false,
+      "id": 9
+    },
+    {
+      "content": "",
+      "date": "2018-05-22T10:38:13.034Z",
+      "important": false,
+      "id": 10
+    },
+    {
+      "content": "aaaaa",
+      "date": "2018-05-22T10:39:07.193Z",
+      "important": true,
+      "id": 11
+    },
+    {
+      "content": "dsaasad",
+      "date": "2018-05-22T10:39:16.376Z",
+      "important": false,
+      "id": 12
+    }
+  ],
+  "persons": [
+    {
+      "name": "Martti Tienari",
+      "number": "040-123456",
+      "id": 2
+    },
+    {
+      "name": "Arto Järvinen",
+      "number": "040-123456",
+      "id": 3
+    },
+    {
+      "name": "Lea Kutvonen",
+      "number": "040-123456",
+      "id": 4
+    },
+    {
+      "name": "Jorma Kuusela",
+      "number": "040-987654321",
+      "id": 5
+    },
+    {
+      "name": "Arto Hellas",
+      "number": "040-5634789",
+      "id": 6
+    }
+  ]
+}
