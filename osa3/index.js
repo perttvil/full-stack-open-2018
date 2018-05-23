@@ -1,8 +1,10 @@
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
+
+const app = express()
+app.use(express.static('build'))
 
 const logger = (request, response, next) => {
     console.log('Method:', request.method)
@@ -50,9 +52,11 @@ let persons = [
 ]
 
 
+/*
 app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>')
 })
+*/
 
 app.get('/notes', (req, res) => {
     res.json(notes)
@@ -64,6 +68,18 @@ app.get('/notes/:id', (request, response) => {
 
     if (note) {
         response.json(note)
+    } else {
+        response.status(404).end()
+    }
+})
+
+app.put('/notes/:id', (request, response) => {
+    const id = Number(request.params.id)
+    const updatedNote = request.body
+    const note = notes.find(note => note.id === id)
+    if (note) {
+        notes = notes.map(n => n.id !== id ? n : updatedNote)
+        response.json(updatedNote)
     } else {
         response.status(404).end()
     }
