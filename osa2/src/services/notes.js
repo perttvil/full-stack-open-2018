@@ -1,5 +1,7 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/notes'
+// const baseUrl = 'http://localhost:3001/notes'
+// This was changed to direct to node server created in osa3
+const baseUrl = '/notes'
 
 const getAll = () => {
     const request = axios.get(baseUrl)
