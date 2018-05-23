@@ -2,21 +2,24 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const cors = require('cors')
 
 const logger = (request, response, next) => {
-    console.log('Method:',request.method)
+    console.log('Method:', request.method)
     console.log('Path:  ', request.path)
     console.log('Body:  ', request.body)
     console.log('---')
     next()
 }
+morgan.token('request-content', function (req, res) {
+    return JSON.stringify(req.body)
+})
 
+
+app.use(cors())
 app.use(bodyParser.json())
-//app.use(logger)
-
-
-morgan.token('request-content', function (req, res) { return JSON.stringify(req.body) })
 app.use(morgan(':method :url :request-content :status :res[content-length] - :response-time ms'))
+// app.use(logger)
 
 let notes = [
     {
@@ -148,14 +151,13 @@ app.post('/api/persons', (request, response) => {
     response.json(person)
 })
 
-
+/** This has to be after endpoints, to be run in right order */
 const error = (request, response) => {
     response.status(404).send({error: 'unknown endpoint'})
 }
-
 app.use(error)
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
