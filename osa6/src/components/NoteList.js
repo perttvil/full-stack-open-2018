@@ -1,42 +1,36 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import actionFor from '../actionCreators'
+import { connect } from 'react-redux'
+import { toggleImportance } from './../reducers/noteReducer'
 import Note from './Note'
 
-class NoteList extends React.Component {
-  componentDidMount() {
-    const { store } = this.context
-    this.unsubscribe = store.subscribe(() =>
-      this.forceUpdate()
-    )
-  }
+const NoteList = (props) => (
+  <ul>
+    {props.visibleNotes.map(note =>
+      <Note
+        key={note.id}
+        note={note}
+        handleClick={() => props.toggleImportance(note)}
+      />
+    )}
+  </ul>
+)
 
-  componentWillUnmount() {
-    this.unsubscribe()
+const notesToShow = (notes, filter) => {
+  if (filter === 'ALL') {
+    return notes
   }
-    
-  toggleImportance = (id) => (e) => {
-    this.context.store.dispatch(
-      actionFor.importanceToggling(id)
-    )
-  }
-  render() {
-    return (
-      <ul>
-        {this.context.store.getState().map(note =>
-          <Note
-            key={note.id}
-            note={note}
-            handleClick={this.toggleImportance(note.id)}
-          />
-        )}
-      </ul>
-    )
+  return filter === 'IMPORTANT'
+    ? notes.filter(note => note.important)
+    : notes.filter(note => !note.important)
+}
+
+const mapStateToProps = (state) => {
+  return {
+    visibleNotes: notesToShow(state.notes, state.filter)
   }
 }
 
-NoteList.contextTypes = {
-  store: PropTypes.object
-}
-
-export default NoteList
+export default connect(
+  mapStateToProps,
+  { toggleImportance }
+)(NoteList)

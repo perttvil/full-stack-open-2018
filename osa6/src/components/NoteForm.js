@@ -1,26 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import actionFor from '../actionCreators'
+import { createNew } from './../reducers/noteReducer'
+import { connect } from 'react-redux'
 
 class NoteForm extends React.Component {
-  componentDidMount() {
-    const { store } = this.context
-    this.unsubscribe = store.subscribe(() =>
-      this.forceUpdate()
-    )
-  }
 
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
-  addNote = (event) => {
+  addNote = async (event) => {
     event.preventDefault()
-    this.context.store.dispatch(
-      actionFor.noteCreation(event.target.note.value)
-    )
+    const content = event.target.note.value
     event.target.note.value = ''
+    this.props.createNew(content)
   }
+
   render() {
     return (
       <form onSubmit={this.addNote}>
@@ -31,8 +21,7 @@ class NoteForm extends React.Component {
   }
 }
 
-NoteForm.contextTypes = {
-  store: PropTypes.object
-}
-
-export default NoteForm
+export default connect(
+  null,
+  { createNew }
+)(NoteForm)

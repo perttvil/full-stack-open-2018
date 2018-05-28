@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "notes": [
+    {
+      "content": "reduxin storen toiminnan määrittelee reduceri",
+      "important": true,
+      "id": 1
+    },
+    {
+      "content": "storen tilassa voi olla mielivaltaista dataa",
+      "important": false,
+      "id": 2
+    },
+    {
+      "content": "123132312",
+      "important": false,
+      "id": 3
+    },
+    {
+      "content": 1,
+      "important": false,
+      "id": 4
+    },
+    {
+      "content": 2,
+      "important": false,
+      "id": 5
+    },
+    {
+      "content": 3,
+      "important": false,
+      "id": 6
+    },
+    {
+      "content": "",
+      "important": false,
+      "id": 7
+    },
+    {
+      "content": 1,
+      "important": false,
+      "id": 8
+    },
+    {
+      "content": 7,
+      "important": false,
+      "id": 9
+    },
+    {
+      "content": "123132",
+      "important": false,
+      "id": 10
+    }
+  ]
+}
